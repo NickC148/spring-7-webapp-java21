@@ -1,0 +1,20 @@
+package spring_7_webapp.services;
+
+import org.springframework.stereotype.Service;
+import spring_7_webapp.domain.Author;
+import spring_7_webapp.repositories.AuthorRepository;
+
+@Service
+public class AuthorServiceImpl implements AuthorService {
+
+    private AuthorRepository authorRepository;
+
+    public AuthorServiceImpl(AuthorRepository authorRepository) {
+        this.authorRepository = authorRepository;
+    }
+
+    @Override
+    public Iterable<Author> findAll() {
+        return authorRepository.findAll();
+    }
+}
